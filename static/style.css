@@ -1,0 +1,46 @@
+body {
+    font-family: Arial;
+    background: #f4f6f8;
+    padding: 20px;
+}
+
+h1 { color: #2c3e50; }
+
+input, select, button {
+    padding: 8px;
+    margin: 5px;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#chart {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    font-size: 13px;
+}
+
+.active {
+    background-color: #27ae60;
+}
+
+.completed {
+    background-color: #2980b9;
+}
+

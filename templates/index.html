@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internship Tracking System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Internship Tracking System</h1>
+
+<input id="search" placeholder="Search by name or company">
+
+<form action="/add" method="post">
+    <input name="name" placeholder="Name" required>
+    <input name="university" placeholder="University" required>
+    <input name="company" placeholder="Company" required>
+    <input name="duration" placeholder="Duration" required>
+    <input name="mentor" placeholder="Mentor" required>
+
+    <select name="status">
+        <option>Active</option>
+        <option>Completed</option>
+    </select>
+
+    <input name="performance" placeholder="Performance" required>
+    <button>Add Intern</button>
+</form>
+<a href="/export">
+    <button>Export CSV</button>
+</a>
+
+<table id="internTable">
+<tr>
+    <th onclick="sortTable(0)">Name ⬍</th><th>Company</th><th>Status</th><th onclick="sortTable(3)">Score ⬍</th><th>Action</th>
+</tr>
+{% for i in interns %}
+<tr>
+    <td>{{ i[1] }}</td>
+    <td>{{ i[3] }}</td>
+    <td>
+  <span class="badge {{ 'active' if i[6]=='Active' else 'completed' }}">
+    {{ i[6] }}
+  </span>
+</td>
+
+    <td>{{ i[7] }}</td>
+    <td><a href="/delete/{{ i[0] }}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Internship Statistics</h2>
+<canvas id="chart" width="300" height="300"></canvas>
+
+<h2>Company Statistics</h2>
+<canvas id="companyChart" width="400" height="300"></canvas>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
